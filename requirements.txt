@@ -3,4 +3,4 @@ pandas
 yfinance
 requests
 openpyxl
-lxml
+xlrd
