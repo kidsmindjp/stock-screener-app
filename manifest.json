@@ -1,0 +1,15 @@
+{
+  "name": "プロ株分析ハイブリッド",
+  "short_name": "株スキャナー",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E1117",
+  "theme_color": "#FF4B4B",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2534/2534185.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
