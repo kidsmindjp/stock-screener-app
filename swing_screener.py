@@ -9,6 +9,22 @@ import re
 # --- 設定 ---
 st.set_page_config(page_title="プロ株分析ハイブリッド", layout="wide")
 
+import streamlit.components.v1 as components
+
+# --- PWA設定の注入 ---
+def inject_pwa_meta():
+    pwa_meta = """
+    <link rel="manifest" href="https://raw.githubusercontent.com/あなたのユーザー名/リポジトリ名/main/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="株スキャナー">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2534/2534185.png">
+    """
+    # st.markdown(pwa_meta, unsafe_allow_html=True) # これだけでは不十分な場合があるため
+    components.html(f"<script>window.parent.document.head.insertAdjacentHTML('beforeend', `{pwa_meta}`);</script>", height=0)
+
+inject_pwa_meta()
+
 # --- データ取得 ---
 @st.cache_data(ttl=86400)
 def get_jpx_master():
